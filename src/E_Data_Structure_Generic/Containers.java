@@ -114,6 +114,62 @@ public class Containers {
          * Comparable, compareTo, Comparator
          */
 
+        /**
+         *assist class with Array & Collection
+         */
+        /* Todo Arrays */
+        Random random = new Random();
+        Long[] array = new Long[100];
+        Arrays.fill(array, 5L);
+        Long[] copy = Arrays.copyOf(array, 200);
+        for (int i = 100; i < copy.length; i++)
+            copy[i] = random.nextLong() % 10;
+        //An unmodifiable list:
+        List<Integer> asList = Arrays.asList(1, 2, 3, 4);
+        List<Long> asList2 = Arrays.asList(array);
+        Arrays.sort(array);
+        int index = Arrays.binarySearch(array, 7L);
+        int[] a1 = {1, 2, 3, 4};
+        int[] a2 = {1, 2, 3, 4};
+        System.out.println(a1 == a2); //false
+        System.out.println(a1.equals(a2)); //false
+        System.out.println(Arrays.equals(a1, a2)); //false
+        System.out.println(a1); // [I@7852e922
+        System.out.println(a1.toString());// [I@7852e922
+        System.out.println(Arrays.toString(a1)); // [1, 2, 3, 4]
+
+        /* Todo Collections */
+        List<String> list = new ArrayList<String>();
+        Collections.addAll(list, "A", "Book", "Car", "A");
+        int freq = Collections.frequency(list, "A");
+        Collections.sort(list);
+        Comparator<String> comp = new Comparator<String>(){
+            public int compare(String o1, String o2) {
+                return Integer.compare(o1.length(), o2.length());
+            }
+        };
+        Collections.sort(list, comp);
+        Collections.reverse(list);
+
+        String min =  Collections.min(list);
+        String max =  Collections.max(list);
+        String max2 = Collections.max(list, comp);
+
+        Collections.shuffle(list);
+        Collections.fill(list, "B");
+
+
+        /**
+         * Synchronized Collections
+         */
+        //ConcurrentHashMap, Vector
+        // unmodifiable
+        List<String> unmod1 = Arrays.asList("A", "B");
+        List<String> mod1 = new ArrayList<>(unmod1);
+        Collection<String> unmod2 = Collections.unmodifiableCollection(mod1);
+
+
+
 
     }
 }
