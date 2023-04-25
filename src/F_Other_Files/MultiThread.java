@@ -1,6 +1,15 @@
 package F_Other_Files;
 
 public class MultiThread {
+
+    enum State {
+        NEW,
+        RUNNABLE,
+        BLOCKED,
+        WAITING,
+        TIMED_WAITING,
+        TERMINATED;
+    }
     public static void main(String[] args) throws InterruptedException {
         /* number 1 */
         MyThread t1 = new MyThread();
@@ -34,15 +43,6 @@ public class MultiThread {
         daemon.start();
 
         //getState
-
-        enum State {
-            NEW,
-            RUNNABLE,
-            BLOCKED,
-            WAITING,
-            TIMED_WAITING,
-            TERMINATED;
-        }
 
         Thread state = new MyThread();
         state.start();
